@@ -14,7 +14,10 @@ function playerChoice() {
     return playerChoice;
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+
+    let computerSelection = getComputerChoice();
+
     if (playerSelection.toLowerCase() === computerSelection.toLowerCase())
         console.log('Draw!');
     if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'paper'
@@ -31,12 +34,10 @@ function checkPlayerInput(playerChoice) {
     return playerChoice.toLowerCase() == 'rock' || playerChoice.toLowerCase() == 'paper' || playerChoice.toLowerCase() == 'scissor' ? true : false;
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let computerPick = getComputerChoice();
-        let playerPick = playerChoice();
-        playRound(playerPick, computerPick);
-    }
-}
+const clickedButton = document.querySelector('.buttons');
+clickedButton.addEventListener('click', e => {
+    let chosenButton = e.target;
+    if (chosenButton.tagName == 'BUTTON')
+        playRound(chosenButton.value);
+});
 
-game();
