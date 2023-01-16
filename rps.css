@@ -5,20 +5,52 @@
 
 body {
     background-color: #121212;
-
-}
-
-.container {
     min-width: 100vw;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10rem;
 }
 
-.result {
-    min-height: 80vh;
+.container {
+    background-color: #2a2c2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-direction: column;
+    padding: 5rem;
+    border-radius: 2em;
+    box-shadow: .5em .5em #262829;
+}
+
+.buttons {
+    display: flex;
+    gap: 3rem
+}
+
+.btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    transition: transform .2s;
+}
+
+.btn:hover {
+    color: #f2aa4cff;
+    transform: scale(1.15);
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
     min-width: 20vw;
-    background-color: #787d82;
+    background-color: #92969c;
+    color: black;
+    font-size: 2em;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
 }

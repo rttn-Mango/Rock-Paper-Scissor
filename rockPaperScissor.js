@@ -19,25 +19,30 @@ function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
 
     if (playerSelection.toLowerCase() === computerSelection.toLowerCase())
-        console.log('Draw!');
+        //console.log('Draw!');
+        document.getElementById("result").textContent = ` Draw! `;
     if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'paper'
         || playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'scissor'
         || playerSelection.toLowerCase() === 'scissor' && computerSelection.toLowerCase() === 'rock')
-        console.log('Computer Wins!');
+        //console.log('Computer Wins!');
+        document.getElementById("result").textContent = ` Computer Wins! `;
     else if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissor'
         || playerSelection.toLowerCase() === 'scissor' && computerSelection.toLowerCase() === 'paper'
         || playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock')
-        console.log('Player Wins!');
+        //console.log('Player Wins!');
+        document.getElementById("result").textContent = `Player Wins! `;
 }
 
 function checkPlayerInput(playerChoice) {
     return playerChoice.toLowerCase() == 'rock' || playerChoice.toLowerCase() == 'paper' || playerChoice.toLowerCase() == 'scissor' ? true : false;
 }
 
-const clickedButton = document.querySelector('.buttons');
-clickedButton.addEventListener('click', e => {
-    let chosenButton = e.target;
-    if (chosenButton.tagName == 'BUTTON')
-        playRound(chosenButton.value);
+let clickedButton = document.querySelectorAll('.btn');
+clickedButton.forEach((button) => {
+    button.addEventListener('click', e => {
+        let chosenButton = e.currentTarget;
+        if (chosenButton.tagName == 'BUTTON')
+            playRound(chosenButton.value);
+    });
 });
 
